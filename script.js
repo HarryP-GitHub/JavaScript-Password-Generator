@@ -62,10 +62,19 @@ if (inclLowerCase) {
   allCharacterType += specialChars;
 }
 console.log(allCharacterType);
-// WHen I console log, I see all the selected prompts!!
-
-
+// When I console log, I see all the selected prompts!!
 // Then need to set up password using a for loop which will select from the strings, most likely using the random function to pick from the string
+//Making a new variable with an empty string, I then a for loop that will choose randomised characters from the selected character types
+var newPassword = "";
+
+for (var i = 0; i < passwordLength; i++) {
+  var index = Math.floor(Math.random() * allCharacterType.length);
+  newPassword += allCharacterType[index];
+}
+
+console.log(newPassword);
+return newPassword;
+
 
 }
 
