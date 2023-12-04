@@ -27,16 +27,22 @@ var specialChars = " !@#'$%&()*+,-./:;<=>?[]^_`{|}~"
 // The password must be between 8 and 128 characters
   var passwordLength = prompt("Choose your password length (password must be between 8 and 128 characters):");
 
-// Using isNaN to check if password length is a number
+// Using isNaN to check if password length is a number, this also allows 8 and 128 to be incl
 if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
   alert("Please enter a valid whole number (no decimals) between 8 and 128.");
   return ""; //Using empty quotes to not make it return undefined, rather leave the placeholder
 }
+console.log(passwordLength);
 // Using confirm function to see if user wants to include these in the password prompt criteria
+//Leaving in console.log for testing
 var inclLowerCase = confirm("Would you like to include lowercase letters?");
+console.log(inclLowerCase);
 var inclUpperCase = confirm("Would you like to include uppercase letters?");
+console.log(inclUpperCase);
 var inclNumeric = confirm("Would you like to include numbers?");
+console.log(inclNumeric);
 var inclSpecialChars = confirm("Would you like to include special characters?");
+console.log(inclSpecialChars);
 
 //Ensuring that at least 1 of the character types are included in the password criteria
 if (!inclLowerCase && !inclUpperCase && !inclNumeric && !inclSpecialChars) {
@@ -45,6 +51,19 @@ if (!inclLowerCase && !inclUpperCase && !inclNumeric && !inclSpecialChars) {
 }
 
 // Need to set up password to include the selected character types
+var allCharacterType = "";
+if (inclLowerCase) {
+  allCharacterType += lowerCase;
+} if (inclUpperCase) {
+  allCharacterType += upperCase;
+} if (inclNumeric) {
+  allCharacterType += numeric;
+} if (inclSpecialChars) {
+  allCharacterType += specialChars;
+}
+console.log(allCharacterType);
+// WHen I console log, I see all the selected prompts!!
+
 
 // Then need to set up password using a for loop which will select from the strings, most likely using the random function to pick from the string
 
