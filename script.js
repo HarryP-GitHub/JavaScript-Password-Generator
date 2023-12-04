@@ -11,5 +11,44 @@ function writePassword() {
 }
 
 
+// Making the function with prompts for password criteria
+function generatePassword() {
+
+//Setting up variables within the generatePassword function
+// Im using a string instead of an array because it would be very long to type 
+// If I combine the selected character types, then I can get the generator to randomly pick from the pool
+var lowerCase = "abcdefghijklmnopqrstuvwxyz"
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var numeric = "1234567890"
+var specialChars = " !@#'$%&()*+,-./:;<=>?[]^_`{|}~"
+// I'm not sure how to include all the special characters without triggering it's use such as \ and "
+// There is probably a way
+
+// The password must be between 8 and 128 characters
+  var passwordLength = prompt("Choose your password length (password must be between 8 and 128 characters):");
+
+// Using isNaN to check if password length is a number
+if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
+  alert("Please enter a valid whole number (no decimals) between 8 and 128.");
+  return ""; //Using empty quotes to not make it return undefined, rather leave the placeholder
+}
+// Using confirm function to see if user wants to include these in the password prompt criteria
+var inclLowerCase = confirm("Would you like to include lowercase letters?");
+var inclUpperCase = confirm("Would you like to include uppercase letters?");
+var inclNumeric = confirm("Would you like to include numbers?");
+var inclSpecialChars = confirm("Would you like to include special characters?");
+
+//Ensuring that at least 1 of the character types are included in the password criteria
+if (!inclLowerCase && !inclUpperCase && !inclNumeric && !inclSpecialChars) {
+  alert("Please select at include at least one of these character types")
+  return "";
+}
+
+// Need to set up password to include the selected character types
+
+// Then need to set up password using a for loop which will select from the strings, most likely using the random function to pick from the string
+
+}
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
